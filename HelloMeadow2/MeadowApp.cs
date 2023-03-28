@@ -32,7 +32,7 @@ namespace HelloMeadow2
 
             return base.Initialize();
         }
-        async Task CycleColors(TimeSpan duration)
+        private async Task CycleColors(TimeSpan duration)
         {
             Console.WriteLine("Cycle colors...");
             var colors = typeof(Color).GetFields().Where(p => p.DeclaringType == typeof(Color));//.Where(p => p.DeclaringType == typeof(Color)).ToList();
@@ -49,7 +49,7 @@ namespace HelloMeadow2
                 }
             }
         }
-        async Task ShowColorPulse(Color color, TimeSpan duration)
+        private async Task ShowColorPulse(Color color, TimeSpan duration)
         {
             onboardLed.StartPulse(color, duration / 2);
             await Task.Delay(duration);
